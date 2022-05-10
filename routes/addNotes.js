@@ -10,13 +10,14 @@ addNoteRouter.get('/', (req, res) => {
 
 addNoteRouter.post('/', (req, res) => {
     console.info(`${req.method} request received to submit feedback`);
+    console.log(req.body);
 
-    const { title, note } = req.body;
+    const { title, text } = req.body;
 
-    if (title && note) {
+    if (title && text) {
         const newNote = {
             title,
-            note,
+            text,
             note_id: uuid(),
         };
 
